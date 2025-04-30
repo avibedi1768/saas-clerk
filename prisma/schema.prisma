@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  // output   = "../generated/prisma"
 }
 
 datasource db {
@@ -18,7 +18,7 @@ model User {
   id               String    @id
   email            String    @unique
   isSubscribed     Boolean   @default(false)
-  subscriptionEnds DateTime?
+  subscriptionEnds DateTime? // optional
   todos            Todo[]
 }
 
