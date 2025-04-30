@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 // export default authMiddleware();
 
 const publicRoutes = createRouteMatcher([
-  "/",
+  // "/",
   "/api/webhook/register",
   "/sign-up",
   "/sign-in",

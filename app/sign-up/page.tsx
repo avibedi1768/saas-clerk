@@ -27,6 +27,8 @@ function Signup() {
 
   // some states
   const [emailAddress, setEmailAddress] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState("");
@@ -37,7 +39,12 @@ function Signup() {
 
   // loader part
   if (!isLoaded) {
-    return <Progress value={33} />;
+    return (
+      <div className="flex flex-col gap-6 justify-center items-center min-h-screen">
+        <h1>Loading...</h1>
+        <Progress value={33} />
+      </div>
+    );
   }
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -50,6 +57,8 @@ function Signup() {
       await signUp.create({
         emailAddress,
         password,
+        firstName,
+        lastName,
       });
 
       // send the code to user on his email
@@ -122,6 +131,28 @@ function Signup() {
                   onChange={(e) => setEmailAddress(e.target.value)}
                   required
                 />
+              </div>
+              <div className="flex justify-between items-center ">
+                <div className="space-y-2">
+                  <Label htmlFor="fname">First Name</Label>
+                  <Input
+                    type="text"
+                    id="fname"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="lname">Last Name</Label>
+                  <Input
+                    type="text"
+                    id="lname"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                  />
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password">Password</Label>

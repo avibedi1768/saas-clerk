@@ -32,7 +32,12 @@ function SignIn() {
 
   // loader part
   if (!isLoaded) {
-    return <Progress value={33} />;
+    return (
+      <div className="flex flex-col gap-6 justify-center items-center min-h-screen">
+        <h1>Loading...</h1>
+        <Progress value={33} />
+      </div>
+    );
   }
 
   async function submit(e: React.FormEvent) {

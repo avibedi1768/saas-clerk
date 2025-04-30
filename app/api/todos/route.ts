@@ -60,6 +60,7 @@ export async function GET(req: NextRequest) {
 // post new todos
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
+  console.log("inside post function");
 
   if (!userId) {
     return NextResponse.json({ error: "unauthorised" }, { status: 401 });

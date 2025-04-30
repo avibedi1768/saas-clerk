@@ -19,6 +19,8 @@ model User {
   email            String    @unique
   isSubscribed     Boolean   @default(false)
   subscriptionEnds DateTime? // optional
+  firstName        String    @default("")
+  lastName         String    @default("")
   todos            Todo[]
 }
 
